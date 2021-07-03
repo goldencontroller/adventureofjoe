@@ -28,7 +28,7 @@ async function initGame() {
         top: 0,
         left: 0
     };
-    await Photopea.runScript(window.parent, "app.open('https://yikuansun.github.io/dumbspacething/img/player_ship.png', null, true);");
+    await Photopea.runScript(window.parent, "app.open('https://goldencontroller.github.io/adventureofjoe/images/joe.svg', null, true);");
     await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playerhitbox.left}, ${playerhitbox.left})`);
 
     var frame = 0;
