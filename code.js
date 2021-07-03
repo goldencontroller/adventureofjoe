@@ -106,17 +106,14 @@ async function initGame() {
                 else if (directional == "bottom") {
                     playervelocity[1] = -0.1;
                 }
-                else if (directional == "top") {
-                    playervelocity[1] = 1;
-                    playerAirbourne = false;
-                }
+                else if (directional == "top") playerAirbourne = false;
             }
         }
         if (playerAirbourne) {
             playervelocity[1] -= 0.25;
         }
         else {
-            if (Math.abs(playervelocity[1]) < 1) playervelocity[1] = 0;
+            playervelocity[1] = 0;
             if (keysDown.x) playervelocity[1] = 10;
         }
 
