@@ -46,16 +46,17 @@ async function initGame() {
     await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playerhitbox.left}, ${playerhitbox.top})`);
 
     var frame = 0;
+    var playervelocity = [0, 0];
     var tick = async function() {
         frame++;
-        if (keysDown.ArrowLeft) {
-            await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(-5, 0)`);
-            playerhitbox.left -= 5;
-        }
-        if (keysDown.ArrowRight) {
-            await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(5, 0)`);
-            playerhitbox.left += 5;
-        }
+        if (keysDown.ArrowLeft) playervelocity[0] += 2
+        if (keysDown.ArrowRight) playervelocity[0] += 2;
+
+        if (Math.abs(playervelocity[0]) < 1) playervelocity[0] = 0;
+        else playervelocity[0] /= 2;
+
+        await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playervelocity[0]}, 0)`);
+        playerhitbox.left += playervelocity[0];
 
         requestAnimationFrame(tick);
     };
