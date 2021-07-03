@@ -69,7 +69,7 @@ async function initGame() {
     };
     var platformhitboxes = [
         {
-            top: 980,
+            top: 855,
             left: 0,
             width: 1920,
             height: 100
