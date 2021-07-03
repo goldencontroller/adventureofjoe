@@ -99,21 +99,26 @@ async function initGame() {
                 var directional = directionalcollision(playerhitbox, platform);
                 if (directional == "right") {
                     playervelocity[0] = 0.1;
-                    playerhitbox.left = platform.left + platform.width + playerhitbox.width;
                 }
                 else if (directional == "left") {
                     playervelocity[0] = -0.1;
-                    playerhitbox.left = platform.left - platform.width;
                 }
                 else if (directional == "bottom") {
                     playervelocity[1] = -0.1;
                 }
-                else if (directional == "top") playerAirbourne = false;
+                else if (directional == "top") {
+                    playervelocity[1] = 0.1;
+                    playerAirbourne = false;
+                }
             }
         }
+        if (playerAirbourne) {
+            playervelocity[1] -= 0.1;
+        }
 
-        await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playervelocity[0]}, 0)`);
+        await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playervelocity[0]}, ${-playervelocity[1]})`);
         playerhitbox.left += playervelocity[0];
+        playerhitbox.top -= playervelocity[1];
 
         requestAnimationFrame(tick);
     };
