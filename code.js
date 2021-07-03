@@ -32,8 +32,8 @@ async function initGame() {
     });
 
     var playerhitbox = {
-        top: 0,
-        left: 0
+        top: 980,
+        left: 100
     };
     await Photopea.runScript(window.parent, `app.open('${await getdataurl("images/joe.svg")}', null, true);`);
     await new Promise(function(resolve, reject) {
