@@ -117,7 +117,7 @@ async function initGame() {
             if (keysDown.x) playervelocity[1] = 10;
         }
 
-        await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playervelocity[0]}, ${-playervelocity[1]})`);
+        await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playervelocity[0]}, ${0 - playervelocity[1]})`);
         playerhitbox.left += playervelocity[0];
         playerhitbox.top -= playervelocity[1];
 
