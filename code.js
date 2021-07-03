@@ -32,8 +32,8 @@ async function initGame() {
     });
 
     var playerhitbox = {
-        top: 980,
-        left: 100,
+        top: 855,
+        left: 125,
         width: 100,
         height: 100
     };
