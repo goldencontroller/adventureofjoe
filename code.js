@@ -24,25 +24,23 @@ async function initGame() {
         );
     }
 
-    var playerpos = [960, 1000];
+    var playerhitbox = {
+        top: 0,
+        left: 0
+    };
     await Photopea.runScript(window.parent, "app.open('https://yikuansun.github.io/dumbspacething/img/player_ship.png', null, true);");
-    await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${960 - 97}, ${1000 - 77})`);
-
-    var playerblasts = [];
+    await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playerhitbox.left}, ${playerhitbox.left})`);
 
     var frame = 0;
     var tick = async function() {
         frame++;
         if (keysDown.ArrowLeft) {
             await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(-5, 0)`);
-            playerpos -= 5;
+            playerhitbox.left -= 5;
         }
         if (keysDown.ArrowRight) {
             await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(5, 0)`);
-            playerpos += 5;
-        }
-        if (keysDown.x && frame & 20 == 0) {
-            playerblasts.push({ x: playerpos[0], y: playerpos[1] });
+            playerhitbox.left += 5;
         }
 
         requestAnimationFrame(tick);
