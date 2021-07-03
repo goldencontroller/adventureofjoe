@@ -116,7 +116,7 @@ async function initGame() {
             playervelocity[1] -= 0.25;
         }
         else {
-            playervelocity[1] += 0.2;
+            playervelocity[1] += 0.5;
             if (keysDown.x) playervelocity[1] = 10;
         }
 
