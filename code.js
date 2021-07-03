@@ -67,6 +67,14 @@ async function initGame() {
         width: 100,
         height: 100
     };
+    var platformhitboxes = [
+        {
+            top: 980,
+            left: 0,
+            width: 1920,
+            height: 100
+        }
+    ];
     await Photopea.runScript(window.parent, `app.open('${await getdataurl("images/joe.svg")}', null, true);`);
     await new Promise(function(resolve, reject) {
         setTimeout(function() {
