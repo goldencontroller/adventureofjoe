@@ -15,15 +15,14 @@ window.addEventListener("keyup", function(e) {
 });
 
 async function initGame() {
-    var point_circle = function(point, circle) {
-        var x = point.x;
-        var y = point.y;
-        var h = circle.x;
-        var k = circle.y;
-        var r = circle.radius;
-        if (Math.pow(x - h, 2) + Math.pow(y - k, 2) <= Math.pow(r, 2)) return true;
-        else return false;
-    };
+    var rect_collision = function(sprite1, sprite2) {
+        return (
+            parseFloat(sprite1.top) + parseFloat(sprite1.height) >= parseFloat(sprite2.top) &&
+            parseFloat(sprite1.left) + parseFloat(sprite1.width) >= parseFloat(sprite2.left) &&
+            parseFloat(sprite1.top) <= parseFloat(sprite2.top) + parseFloat(sprite2.height) &&
+            parseFloat(sprite1.left) <= parseFloat(sprite2.left) + parseFloat(sprite2.width)
+        );
+    }
 
     var playerpos = [960, 1000];
     await Photopea.runScript(window.parent, "app.open('https://yikuansun.github.io/dumbspacething/img/player_ship.png', null, true);");
