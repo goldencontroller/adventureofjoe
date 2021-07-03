@@ -107,7 +107,7 @@ async function initGame() {
                     playervelocity[1] = -0.1;
                 }
                 else if (directional == "top") {
-                    playervelocity[1] = 0.5;
+                    playervelocity[1] = 1;
                     playerAirbourne = false;
                 }
             }
