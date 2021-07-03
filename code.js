@@ -113,7 +113,7 @@ async function initGame() {
             }
         }
         if (playerAirbourne) {
-            playervelocity[1] -= 0.2;
+            playervelocity[1] -= 0.25;
         }
         else {
             playervelocity[1] += 0.2;
