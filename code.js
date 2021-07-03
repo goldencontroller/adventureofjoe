@@ -34,7 +34,7 @@ async function initGame() {
             resolve();
         }, 169);
     });
-    await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playerhitbox.left}, ${playerhitbox.left})`);
+    await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playerhitbox.left}, ${playerhitbox.top})`);
 
     var frame = 0;
     var tick = async function() {
