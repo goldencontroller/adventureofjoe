@@ -24,6 +24,13 @@ async function initGame() {
         );
     }
 
+    await Photopea.runScript(window.parent, `app.open('${await getdataurl("images/level1.svg")}', null, true);`);
+    await new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve();
+        }, 169);
+    });
+
     var playerhitbox = {
         top: 0,
         left: 0
