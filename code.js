@@ -28,7 +28,7 @@ async function initGame() {
         top: 0,
         left: 0
     };
-    await Photopea.runScript(window.parent, "app.open('https://goldencontroller.github.io/adventureofjoe/images/joe.svg', null, true);");
+    await Photopea.runScript(window.parent, `app.open('${await getdataurl("images/joe.svg")}', null, true);`);
     await new Promise(function(resolve, reject) {
         setTimeout(function() {
             resolve();
