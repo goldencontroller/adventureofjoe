@@ -22,7 +22,37 @@ async function initGame() {
             parseFloat(sprite1.top) <= parseFloat(sprite2.top) + parseFloat(sprite2.height) &&
             parseFloat(sprite1.left) <= parseFloat(sprite2.left) + parseFloat(sprite2.width)
         );
-    }
+    };
+    var directionalcollision = function(sprite1, sprite2) {
+        item1 = sprite1;
+        item2 = sprite2;
+        item1_top = item1.top + item1.height;
+        item2_top = item2.top + item2.height;
+        item1_right = item1.left + item1.width;
+        item2_right = item2.left + item2.width;
+    
+        b_collision = item2_top - item1.top;
+        t_collision = item1_top - item2.top;
+        l_collision = item1_right - item2.left;
+        r_collision = item2_right - item1.left;
+    
+        if (t_collision < b_collision && t_collision < l_collision && t_collision < r_collision )
+        {                           
+        return "top";
+        }
+        if (b_collision < t_collision && b_collision < l_collision && b_collision < r_collision)                        
+        {            
+        return "bottom";
+        }
+        if (l_collision < r_collision && l_collision < t_collision && l_collision < b_collision)
+        {
+        return "left";
+        }
+        if (r_collision < l_collision && r_collision < t_collision && r_collision < b_collision )
+        {
+        return "right";
+        }
+    };
 
     await Photopea.runScript(window.parent, `app.open('${await getdataurl("images/level1.svg")}', null, true);`);
     await new Promise(function(resolve, reject) {
