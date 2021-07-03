@@ -113,11 +113,11 @@ async function initGame() {
             }
         }
         if (playerAirbourne) {
-            playervelocity[1] -= 0.1;
+            playervelocity[1] -= 0.2;
         }
         else {
-            playervelocity[1] += 0.05;
-            if (keysDown.x) playervelocity[1] = 10;
+            playervelocity[1] += 0.2;
+            if (keysDown.x) playervelocity[1] = 5;
         }
 
         await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playervelocity[0]}, ${-playervelocity[1]})`);
