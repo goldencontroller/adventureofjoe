@@ -49,8 +49,8 @@ async function initGame() {
     var playervelocity = [0, 0];
     var tick = async function() {
         frame++;
-        if (keysDown.ArrowLeft) playervelocity[0] += 5;
-        if (keysDown.ArrowRight) playervelocity[0] -= 5;
+        if (keysDown.ArrowLeft) playervelocity[0] -= 5;
+        if (keysDown.ArrowRight) playervelocity[0] += 5;
 
         if (Math.abs(playervelocity[0]) < 1) playervelocity[0] = 0;
         else playervelocity[0] /= 2;
