@@ -29,6 +29,11 @@ async function initGame() {
         left: 0
     };
     await Photopea.runScript(window.parent, "app.open('https://goldencontroller.github.io/adventureofjoe/images/joe.svg', null, true);");
+    await new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            resolve();
+        }, 169);
+    });
     await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playerhitbox.left}, ${playerhitbox.left})`);
 
     var frame = 0;
