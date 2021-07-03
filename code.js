@@ -62,14 +62,14 @@ async function initGame() {
     });
 
     var playerhitbox = {
-        top: 800,
+        top: 855,
         left: 125,
         width: 100,
         height: 100
     };
     var platformhitboxes = [
         {
-            top: 855,
+            top: 980,
             left: 0,
             width: 1920,
             height: 100
