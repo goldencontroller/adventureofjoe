@@ -62,7 +62,7 @@ async function initGame() {
     });
 
     var playerhitbox = {
-        top: 855,
+        top: 800,
         left: 125,
         width: 100,
         height: 100
@@ -92,6 +92,25 @@ async function initGame() {
 
         if (Math.abs(playervelocity[0]) < 1) playervelocity[0] = 0;
         else playervelocity[0] /= 2;
+
+        var playerAirbourne = true;
+        for (var platform of platformhitboxes) {
+            if (rect_collision(playerhitbox, platform)) {
+                var directional = directionalcollision(playerhitbox, platform);
+                if (directional == "right") {
+                    playervelocity[0] = 0.1;
+                    playerhitbox.left = platform.left + platform.width + playerhitbox.width;
+                }
+                else if (directional == "left") {
+                    playervelocity[0] = -0.1;
+                    playerhitbox.left = platform.left - platform.width;
+                }
+                else if (directional == "bottom") {
+                    playervelocity[1] = -0.1;
+                }
+                else if (directional == "top") playerAirbourne = false;
+            }
+        }
 
         await Photopea.runScript(window.parent, `app.activeDocument.activeLayer.translate(${playervelocity[0]}, 0)`);
         playerhitbox.left += playervelocity[0];
