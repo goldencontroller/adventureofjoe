@@ -49,7 +49,7 @@ async function initGame() {
     requestAnimationFrame(tick);
 }
 
-Photopea.runScript(window.parent, "app.documents.add(1920, 1080, 72, 'cool game')").then(async function() {
+Photopea.runScript(window.parent, "app.documents.add(1920, 1080, 72, 'The Adventure of Joe')").then(async function() {
     await Photopea.runScript(window.parent, "app.UI.fitTheArea()");
 
 
