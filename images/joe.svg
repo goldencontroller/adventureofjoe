@@ -1,8 +1,16 @@
 <svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 125 125" width="125" height="125">
-	<title>joe</title>
+	<title>joe-svg</title>
 	<style>
 		tspan { white-space:pre }
 		.shp0 { fill: #800000 } 
+		.shp1 { fill: #ffffff } 
+		.shp2 { fill: #000000 } 
+		.shp3 { fill: none;stroke: #000000;stroke-width: 10 } 
 	</style>
-	<path id="Background" class="shp0" d="M0 0L125 0L125 125L0 125L0 0Z" />
+	<path id="bg" class="shp0" d="M0 0L125 0L125 125L0 125L0 0Z" />
+	<path id="Layer 1" class="shp1" d="M74 84C65.15 84 58 70.14 58 53C58 35.86 65.15 22 74 22C82.85 22 90 35.86 90 53C90 70.14 82.85 84 74 84Z" />
+	<path id="Shape 1" class="shp1" d="M102 82C93.7 82 87 68.81 87 52.5C87 36.19 93.7 23 102 23C110.3 23 117 36.19 117 52.5C117 68.81 110.3 82 102 82Z" />
+	<path id="Layer 2" class="shp2" d="M84.5 65C81.46 65 79 59.86 79 53.5C79 47.14 81.46 42 84.5 42C87.54 42 90 47.14 90 53.5C90 59.86 87.54 65 84.5 65Z" />
+	<path id="Shape 2" class="shp2" d="M112 64C109.23 64 107 59.08 107 53C107 46.92 109.23 42 112 42C114.77 42 117 46.92 117 53C117 59.08 114.77 64 112 64Z" />
+	<path id="Layer 3" class="shp3" d="M54 110C54 110 67.83 100.22 87 100C106.17 99.78 119 111 119 111" />
 </svg>
